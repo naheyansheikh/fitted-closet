@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitted Closet</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS stylesheet -->
+</head>
+<body>
+    <header>
+        <section class="hero">
+            <div class="container">
+                <h1>fitted closet</h1>
+            </div>
+        </section>
+    </header>
+    <div class="separator"></div>
+    <main>
+        <section class="features">
+            <div class="button-container">
+                <button onclick="showPieces()">pieces</button>
+                <button onclick="showFits()">fits</button>
+                <button onclick="showCollections()">collections</button>
+            </div>
+            <div class="content" id="content">
+                <!-- Default content -->
+                <div id="piecesFilters" style="display: block;">
+                    <button onclick="openCategory('category')" style="margin: 0 auto;">category</button>
+                    <button onclick="openType('type')" style="margin: 0 auto;">type</button>
+                    <button onclick="openColour('colour')" style="margin: 0 auto;">colour</button>
+                    <button onclick="openBrand('brand')" style="margin: 0 auto;">brand</button>
+                </div>
+                <div id="fitsContent" style="display: none;">
+                    <div style="display: flex; justify-content: center;">
+                        <button onclick="showSavedFits()" style="background: none; border: none;">your fits</button>
+                    </div>
+                    <div style="display: flex; justify-content: center;">
+                        <button onclick="createFit()" style="background: none; border: none;">
+                            <img src="dice.png" alt="Create Fit" style="width: 90px; height: 90px;">
+                        </button>
+                        <button onclick="saveFit()" style="background: none; border: none;">
+                            <img src="heart.png" alt="Save Fit" style="width: 80px; height: 85px;">
+                        </button> 
+                    </div>
+                </div>                
+                <div id="collectionsContent" style="display: none;">
+                    Collections content here...
+                </div>
+            </div>
+        </section>
+        <section class="testimonials">
+            <!-- Testimonials section content will be added here -->
+        </section>
+        <section class="grid">
+            <div class="grid-container" id="gridContainer">
+                <!-- Your photos will be dynamically added here -->
+            </div>
+            <div class="fit-container" id="fitContainer">
+                <!-- Container for displaying the randomly selected images for the fit -->
+            </div> 
+            <input type="file" id="fileInput" accept="image/*">
+            <!-- <button onclick="addPhoto()">Add Photo</button> -->
+        </section>
+    </main>
+    <section class="photos">
+        <button id="addPhotoBtn">add photo</button>
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <label for="category">category:</label>
+                <input type="text" id="category">
+                <label for="type">type:</label>
+                <input type="text" id="type">
+                <label for="color">colour:</label>
+                <input type="text" id="color">
+                <label for="brand">brand:</label>
+                <input type="text" id="brand">
+                <button id="confirmButton" onclick="addPhoto()">confirm</button>
+            </div>
+        </div>
+        <div id="updateInfoModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <label for="updateCategory">Category:</label>
+                <input type="text" id="updateCategory">
+                <label for="updateType">Type:</label>
+                <input type="text" id="updateType">
+                <label for="updateColor">Color:</label>
+                <input type="text" id="updateColor">
+                <label for="updateBrand">Brand:</label>
+                <input type="text" id="updateBrand">
+                <button id="updateConfirmButton">Confirm</button>
+            </div>
+        </div>
+    </section>
+    <!-- Add a modal to display saved fits -->
+<div id="savedFitsModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeSavedFitsModal()">&times;</span>
+        <h2>your saved fits</h2>
+        <div id="savedFitsContainer"></div>
+    </div>
+</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
